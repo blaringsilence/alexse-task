@@ -110,8 +110,10 @@ var changeIDvm = new Vue({
  		profilevm.email = value; //and change in db
      	return value;	
  	}
- 	else 
+ 	else {
  		alert("This is not a valid email!");
+ 		return profilevm.email;
+ 	}
      
   }, {
      type    : 'text',
