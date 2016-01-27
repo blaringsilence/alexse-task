@@ -40,12 +40,22 @@ body{
 	color:#2c3e50;
 }
 
-.profile-text span:hover{
-	border-bottom: 2px dotted rgba(0,0,0,0.5);
+.profile-deets:hover{
+	border-bottom: 2px dotted rgba(0,0,0,0.4);
 
 }
 .study-info{
 	color:#2c3e50;
+}
+
+.edit{
+	font-size:0.5em;
+	margin-left: 0.5em;
+	margin-bottom:0.2em;
+	opacity:0.4;
+}
+.me-is-small{
+	font-size: 0.35em;
 }
 
 /*SUBJECTS*/

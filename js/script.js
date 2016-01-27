@@ -100,7 +100,8 @@ var changeIDvm = new Vue({
   }, {
      type    : 'text',
      width: 300,
-     style: 'display: inline;'
+     style: 'display: inline;',
+     onblur: 'submit'
  });
 
 
@@ -118,7 +119,8 @@ var changeIDvm = new Vue({
   }, {
      type    : 'text',
      width: 400,
-     style: 'display: inline;'
+     style: 'display: inline;',
+     onblur: 'submit'
  });
 
 
