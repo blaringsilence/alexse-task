@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Profile | AlexSE</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <!--TOP MENU-->
+    <div class="container-fluid top-menu">
+      <div class="cols-xs-12 notice">
+       <img src="http://alexse.com/views/home/logo.png" alt="AlexSE Logo" class="top-logo">
+       <span>All typical components of the top bar/menu can be placed here</span>
+      </div>
+    </div>
+  <!--/TOP MENU-->
+  <!--PROFILE SUMMARY-->
+  <div class="container-fluid" id="profile">
+  <div class="container">
+    <div class="col-xs-12 text-center">
+      <a href="#" data-toggle="modal" data-target="#changePic" title="Change Picture">
+       <img v-bind:src="picture" alt="Profile Picture" class="profile-picture">
+      </a>
+    </div>
+    </div>
+    <div class="container">
+    <div class="col-xs-12 text-center">
+      <h1 class="profile-text">
+        <span class="profile-name" title="Edit Name">{{name}}</span><br>
+       <span class="profile-email" title="Edit E-mail"><small>{{email}}</small></span>
+      </h1>
+      <h5 class="study-info">{{department}}, semester: {{semester}}</h5>
+    </div>
+    </div>
+    <div class="container">
+      <div class="col-xs-12 text-center">
+        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#changePW">Change Password</button> <!--Assuming profiles are only ever visible to their creators-->
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeID">SSP ID</button>
+
+      </div>
+    </div>
+  </div>
+  <!--/PROFILE SUMMARY-->
+  <!--COURSES-->
+  <div class="container">
+  <div class="col-md-6 col-xs-12">
+    <div class="container">
+    <div class="col-xs-12">
+      <h3 class="registered-header">Registered Courses</h3>
+    </div>
+  </div>
+  <div class="container"  id="subject-container">
+    <div class="col-xs-12">
+      <ul>
+        <li v-for="subject in subjects">
+          <a href="{{subject.url}}">{{subject.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-6 col-xs-12"><h3>Taking something else?</h3>
+  <button type="button" class="btn btn-warning">Update Your Courses</button>
+  </div>
+  
+  </div>
+
+  <!--/COURSES-->
+
+  <!--MODALS-->
+    <!--CHANGE PIC-->
+    <div class="modal fade" id="changePic" role="dialog" aria-labelledby="changePicLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="changePicLabel">Change Picture</h4>
+        </div>
+        <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="profilepicURL">URL</label>
+            <input type="url" class="form-control" id="profilepicURL" placeholder="http://">
+            <button type="submit" class="btn btn-default" v-on:click="changeImage">Submit</button>
+        </div>
+        </form>
+        </div>
+      </div>
+     </div>
+    </div>
+    <!--/CHANGE PIC-->
+    <!--CHANGE PASSWORD-->
+     <div class="modal fade" id="changePW" role="dialog" aria-labelledby="changePWLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="changePWLabel">Change Password</h4>
+        </div>
+        <div class="modal-body">
+        <form class="form">
+            <div class="form-group">
+            <label for="oldpassword" class="control-label">Old:</label>
+            <input type="password" class="form-control" id="oldpassword">
+            </div>
+            <div class="form-group">
+             <label for="newpassword1" class="control-label">New:</label>
+            <input type="password" class="form-control" id="newpassword1">
+            </div>
+            <div class="form-group">
+             <label for="newpassword2" class="control-label">New (again):</label>
+            <input type="password" class="form-control" id="newpassword2">
+            </div>
+
+            <button type="submit" class="btn btn-primary" v-on:click="changePassword">Submit</button>
+        </form>
+        </div>
+      </div>
+     </div>
+    </div>
+    <!--/CHANGE PASSWORD-->
+     <!--SSP ID-->
+    <div class="modal fade" id="changeID" role="dialog" aria-labelledby="changePicLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="changeIDLabel">SSP ID</h4>
+        </div>
+        <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="sspidtext">ID</label>
+            <input type="url" class="form-control" id="sspidtext" value="{{id}}">
+            <button type="submit" class="btn btn-default" v-on:click="changeID">Update</button>
+        </div>
+        </form>
+        </div>
+      </div>
+     </div>
+    </div>
+    <!--/SSP ID-->
+  <!--/MODALS-->
+  <!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/jeditable.js"></script>
+    <script src="js/script.js"></script>
+  <!--/SCRIPTS-->
+  </body>
+</html>

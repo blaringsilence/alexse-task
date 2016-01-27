@@ -1,0 +1,54 @@
+body{
+	font-family: 'Ubuntu', sans-serif;
+}
+/*MENU*/
+.top-menu{
+	background-color: rgb(51,122,183); /* Bootstrap's primary color */
+	color: white;
+	text-transform: lowercase;
+	text-align: center;
+}
+
+.top-logo{
+	width: 3rem; /* Responsive units */
+}
+
+/*PROFILE INFO*/
+#profile{
+	background-color: #ecf0f1;
+	border-bottom: 0.3em double rgba(0,0,0,0.2);
+	padding-bottom:1em;
+}
+
+.profile-picture{
+	width:10rem; /* Assuming all pics will be uploaded/available squared */
+	border-radius: 50%;
+	border-color: rgba(51,122,183,0.7);
+	border-style:solid;
+	border-width:0.5em;
+	box-shadow: 0em 0.1em 0.2em 0.2em rgba(0,0,0,0.2);
+	margin-top:2em;
+	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s; /* Better safe than sorry */
+}
+
+.profile-picture:hover{
+	opacity:0.6;
+}
+
+.profile-text{
+	color:#2c3e50;
+}
+
+.profile-text span:hover{
+	border-bottom: 2px dotted rgba(0,0,0,0.5);
+
+}
+.study-info{
+	color:#2c3e50;
+}
+
+/*SUBJECTS*/
+#subject-container ul li{
+	font-size: 1.3em;
+}
