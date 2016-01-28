@@ -132,6 +132,11 @@ body{
 .more-btn{
 	margin-left: 2em;
 }
+@media (max-width: 991px) {
+    .more-btn{
+    	margin-bottom: 2em;
+    }
+}
 
 #subject-container ul li{
 	margin-left: 2em;
