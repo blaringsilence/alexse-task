@@ -9,8 +9,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-  </head>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>  </head>
   <body>
   <!--TOP MENU-->
     <div class="container-fluid top-menu">
@@ -20,44 +19,47 @@
       </div>
     </div>
   <!--/TOP MENU-->
-  <!--PROFILE SUMMARY-->
-  <div class="container-fluid" id="profile">
-  <div class="container">
+  <div class="container-fluid"> <!--CONTAINER FOR WHOLE PAGE-->
+  <div class="row">
+  <!--PROFILE SIDEBAR-->
+  <div class="col-xs-12 col-md-3" id="profile">
+   <div class="row">
     <div class="col-xs-12 text-center">
       <a href="#" data-toggle="modal" data-target="#changePic" title="Change Picture">
        <img v-bind:src="picture" alt="Profile Picture" class="profile-picture">
       </a>
     </div>
     </div>
-    <div class="container">
+    <div class="row">
     <div class="col-xs-12 text-center">
       <h1 class="profile-text">
         <span class="profile-deets"><span class="profile-name" title="Edit Name">{{name}}</span><span class="glyphicon glyphicon-pencil edit" aria-hidden="true"></span></span><br>
        <span class="profile-deets"><span class="profile-email" title="Edit E-mail"><small>{{email}}</small></span><span class="glyphicon glyphicon-pencil edit me-is-small" aria-hidden="true"></span></span>
       </h1>
-      <h5 class="study-info">{{department}}, semester: {{semester}}</h5>
+      <h4 class="study-info">{{department}}, semester: {{semester}}</h4>
     </div>
     </div>
-    <div class="container">
+    <div class="row">
       <div class="col-xs-12 text-center">
-        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#changePW">Change Password</button> <!--Assuming profiles are only ever visible to their creators-->
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#changeID">SSP ID</button>
+        <button type="button" class="ghost-button"  data-toggle="modal" data-target="#changePW"><span class="glyphicon glyphicon-lock pw-lock" aria-hidden="true"></span>Change Password</button> <!--Assuming profiles are only ever visible to their creators-->
+        <button type="button" class="ghost-button" data-toggle="modal" data-target="#changeID"><span class="glyphicon glyphicon-edit pw-lock" aria-hidden="true"></span>SSP ID</button>
 
       </div>
     </div>
   </div>
-  <!--/PROFILE SUMMARY-->
-  <!--COURSES-->
-  <div class="container">
+  <!--/PROFILE SIDEBAR-->
+  <!--PAGE CONTENT-->
+  <div class="col-xs-12 col-md-8">
+      <div class="row">
   <div class="col-md-6 col-xs-12">
-    <div class="container">
+    <div class="row">
     <div class="col-xs-12">
-      <h3 class="registered-header">Registered Courses</h3>
+      <h3 class="registered-header">Registered Courses:</h3>
     </div>
   </div>
-  <div class="container"  id="subject-container">
+  <div class="row"  id="subject-container">
     <div class="col-xs-12">
-      <ul>
+      <ul class="list-unstyled">
         <li v-for="subject in subjects">
           <a href="{{subject.url}}">{{subject.name}}</a>
         </li>
@@ -65,30 +67,31 @@
     </div>
   </div>
   </div>
-  <div class="col-md-6 col-xs-12"><h3>Taking something else?</h3>
+  <div class="col-md-6 col-xs-12"><h3 class="more-header">Taking something else?</h3>
   <button type="button" class="btn btn-warning">Update Your Courses</button>
   </div>
-  
   </div>
-
-  <!--/COURSES-->
+  </div>
+  </div>
+  <!--/PAGE CONTENT-->
+ 
 
   <!--MODALS-->
     <!--CHANGE PIC-->
     <div class="modal fade" id="changePic" role="dialog" aria-labelledby="changePicLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="changePicLabel">Change Picture</h4>
         </div>
         <div class="modal-body">
-        <form class="form-inline">
+        <form>
           <div class="form-group">
             <label for="profilepicURL">URL</label>
             <input type="url" class="form-control" id="profilepicURL" placeholder="http://">
-            <button type="submit" class="btn btn-default" v-on:click="changeImage">Submit</button>
         </div>
+        <button type="submit" class="btn btn-warning" v-on:click="changeImage">Submit</button>
         </form>
         </div>
       </div>
@@ -118,7 +121,7 @@
             <input type="password" class="form-control" id="newpassword2">
             </div>
 
-            <button type="submit" class="btn btn-primary" v-on:click="changePassword">Submit</button>
+            <button type="submit" class="btn btn-warning" v-on:click="changePassword">Submit</button>
         </form>
         </div>
       </div>
@@ -127,19 +130,19 @@
     <!--/CHANGE PASSWORD-->
      <!--SSP ID-->
     <div class="modal fade" id="changeID" role="dialog" aria-labelledby="changePicLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="changeIDLabel">SSP ID</h4>
         </div>
         <div class="modal-body">
-        <form class="form-inline">
+        <form>
           <div class="form-group">
             <label for="sspidtext">ID</label>
             <input type="url" class="form-control" id="sspidtext" value="{{id}}">
-            <button type="submit" class="btn btn-default" v-on:click="changeID">Update</button>
         </div>
+        <button type="submit" class="btn btn-warning" v-on:click="changeID">Update</button>
         </form>
         </div>
       </div>

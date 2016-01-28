@@ -1,12 +1,44 @@
 body{
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Quicksand', sans-serif;
+	background-color: #ecf0f1;
+
+}
+.ghost-button {
+  display: inline-block;
+  padding: 0.5em;
+  border: 0.2em solid #ecf0f1;
+  text-align: center;
+  outline: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-size: 0.9em;
+  margin: 1em;
+  margin-left: 0;
+  color:#ecf0f1;
+  transition: border-color 0.5s;
+  -webkit-transition: border-color 0.5s; 
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s; 
+}
+.ghost-button:hover,
+.ghost-button:active {
+  border-color: #F89406;
+  color: #F89406;
+}
+.btn{
+	text-transform: uppercase;
+	transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s; 	
 }
 /*MENU*/
 .top-menu{
-	background-color: rgb(51,122,183); /* Bootstrap's primary color */
+	background: #232526; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */     
 	color: white;
 	text-transform: lowercase;
 	text-align: center;
+	border-bottom: 0.2em double #0b3e51;
 }
 
 .top-logo{
@@ -15,18 +47,24 @@ body{
 
 /*PROFILE INFO*/
 #profile{
-	background-color: #ecf0f1;
-	border-bottom: 0.3em double rgba(0,0,0,0.2);
-	padding-bottom:1em;
+	background: #136a8a; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	height:100vh;
+	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+	
+
+}
+
+#profile:hover{
+	opacity: 0.95;
 }
 
 .profile-picture{
-	width:10rem; /* Assuming all pics will be uploaded/available squared */
+	width:13rem; /* Assuming all pics will be uploaded/available squared */
 	border-radius: 50%;
-	border-color: rgba(51,122,183,0.7);
-	border-style:solid;
-	border-width:0.5em;
-	box-shadow: 0em 0.1em 0.2em 0.2em rgba(0,0,0,0.2);
+	box-shadow: 0em 0.1em 0.2em 0.2em rgba(236, 240, 241, 0.1);
 	margin-top:2em;
 	transition: opacity 0.5s;
 	-webkit-transition: opacity 0.5s; /* Better safe than sorry */
@@ -36,29 +74,90 @@ body{
 	opacity:0.6;
 }
 
-.profile-text{
-	color:#2c3e50;
+#profile input{
+    border: 0px solid #000000;
+    border-bottom-width: 1px;
+    background-color: transparent;
 }
 
+#profile input:hover{
+	background-color: rgba(255,255,255,0.3);
+}
+.profile-text{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color:#232526;
+}
+.profile-text small{
+	color: rgb(236, 240, 241);
+}
+.profile-name{
+	font-weight: bold;
+}
+.profile-email{
+	font-size: 0.7em;
+	text-overflow: ellipsis-word; 
+}
 .profile-deets:hover{
 	border-bottom: 2px dotted rgba(0,0,0,0.4);
 
-}
-.study-info{
-	color:#2c3e50;
 }
 
 .edit{
 	font-size:0.5em;
 	margin-left: 0.5em;
 	margin-bottom:0.2em;
-	opacity:0.4;
+	opacity:0.8;
 }
 .me-is-small{
 	font-size: 0.35em;
 }
+.pw-lock{
+	margin-right: 0.5em;
+}
+
+.study-info{
+	font-size: 1em;
+	font-weight: bold;
+	color: #95a5a6;
+	text-transform: uppercase;
+}
 
 /*SUBJECTS*/
+.registered-header{
+	margin-left: 1.5em;
+}
+
+
 #subject-container ul li{
+	margin-left: 2em;
+	font-weight: bold;
 	font-size: 1.3em;
+}
+
+#subject-container ul li a{
+	color:#136a8a;
+	transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
+}
+
+#subject-container ul li a:hover{
+	background-color: rgba(243, 156, 18,0.7);
+	text-decoration: none;
+}
+
+/*MODALS*/
+.modal-header{
+	background: #136a8a; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color:white;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.modal .btn{
+	width:100%;
+}
+.modal{
+	text-transform: uppercase;
 }
