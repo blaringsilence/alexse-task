@@ -50,11 +50,13 @@ body{
 	background: #136a8a; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	height:100vh;
 	transition: opacity 0.5s;
 	-webkit-transition: opacity 0.5s;
-	
-
+}
+@media (min-width: 992px) {
+    #profile{
+    	height:100vh;
+    }
 }
 
 #profile:hover{
@@ -124,10 +126,12 @@ body{
 }
 
 /*SUBJECTS*/
-.registered-header{
+.registered-header, .more-header{
 	margin-left: 1.5em;
 }
-
+.more-btn{
+	margin-left: 2em;
+}
 
 #subject-container ul li{
 	margin-left: 2em;
