@@ -1,5 +1,9 @@
 // Chose to make several instances of vue then later found out I could've made 1 for the whole body
-
+$('[title]').qtip({
+ 	style:{
+ 		classes: 'qtip-tipsy'
+ 	}
+ }); //TOOLTIPS
 //FOR THE REGULAR PAGE
 var profilevm = new Vue({
 	el: '#profile',
