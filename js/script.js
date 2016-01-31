@@ -99,8 +99,9 @@ var changeIDvm = new Vue({
 
 //EDITABLE (using jeditable.js)
  $('.profile-name').editable(function(value, settings) {
-     profilevm.name = value; //and change in db
-     return value;
+ 	if(value==""){return profilevm.name;}
+     else{profilevm.name = value; //and change in db
+     return value;}
   }, {
      type    : 'text',
      //width: 300,
@@ -110,6 +111,8 @@ var changeIDvm = new Vue({
 
 
  $('.profile-email small').editable(function(value, settings) {
+ 	if(value=="") {return profilevm.email;}
+ 		else{
  	var emailRegex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|me|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
  	if(emailRegex.test(value)){
  		profilevm.email = value; //and change in db
@@ -119,6 +122,7 @@ var changeIDvm = new Vue({
  		alert("This is not a valid email!");
  		return profilevm.email;
  	}
+ }
      
   }, {
      type    : 'text',
